@@ -18,41 +18,41 @@
     <div class="row">
             <h1 class="mr-auto ml-auto">Star Wars RPG</h1>
     </div>
-    <div class="row">
-            <h3 class="mr-auto ml-auto">Choose your character to begin the quest to conquer the galaxy.</h3>
+    <div class="row text-center" id="instructions">
+            <h3 class="mr-auto ml-auto bg-light p-3" id="instructions">Choose your character to begin the quest to conquer the galaxy.</h3>
     </div>
 
     <br>
 
 
-    <div class="row" style="height: 300px">
-        <div class="col-sm-3 bg-light border" id="rad">
-                <div class="text-center mr-0" style="width: 200px; height: 300px" id="obiwan">
+    <div class="row text-center" style="height: 300px">
+        <div class="col-sm-3 invisible" id="OBIWAN">
+                <div class="text-center visible" style="width: 200px; height: 300px" id="obiwan">
                 <img src="assets/images/character_obiwan.jpg" class="rounded float-left img-thumbnail" style="width: 200px; height: 250px" alt="Obi-Wan Kenobi">
-                <span>Score</span>
+                <span class="bg-light pl-2 pr-2" id="obihealth">Score</span>
                 </div>
 
 
         </div>
-        <div class="col-sm-3 bg-light border">
-                <div class="text-center" style="width: 200px; height: 300px" id"hansolo">
+        <div class="col-sm-3 invisible" id="HANSOLO">
+                <div class="text-center visible" style="width: 200px; height: 300px" id="hansolo">
                 <img src="assets/images/character_hansolo.jpg" class="rounded float-left img-thumbnail" style="width: 200px; height: 250px" alt="Han Solo">
-                <span>Score</span>
+                <span class="bg-light pl-2 pr-2" id="hanhealth">Score</span>
                 </div>
 
         </div>
-        <div class="col-sm-3 bg-light border">
-                <div class="text-center" style="width: 200px; height: 300px" id="kyloren">
+        <div class="col-sm-3 invisible" id="KYLOREN">
+                <div class="text-center visible" style="width: 200px; height: 300px" id="kyloren">
                 <img src="assets/images/character_kyloren.jpg" class="rounded float-left img-thumbnail" style="width: 200px; height: 250px" alt="Kylo Ren">
-                <span>Score</span>
+                <span class="bg-light pl-2 pr-2" id="kylohealth">Score</span>
                 </div>
 
 
         </div>
-        <div class="col-sm-3 bg-light border">
-                <div class="text-center" style="width: 200px; height: 300px" id="stormtrooper">
+        <div class="col-sm-3 invisible" id="STORMTROOPER">
+                <div class="text-center visible" style="width: 200px; height: 300px" id="stormtrooper">
                 <img src="assets/images/character_stormtrooper.jpg" class="rounded float-left img-thumbnail" style="width: 200px; height: 250px" alt="Stormtrooper">
-                <span>Score</span>
+                <span class="bg-light pl-2 pr-2" id="stormhealth">Score</span>
                 </div>
         </div>
     </div>
@@ -64,16 +64,14 @@
         <div class="col-sm-1"></div>
         <div class="col-sm-4">
             <div id="player">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
 
             </div>
         </div>
-        <div class="col-sm-2 text-center">
-            <button class="mt-auto mb-auto">Attack!</button>
+        <div class="col-sm-2 text-center invisible">
+            <button class="mt-auto mb-auto" id="attack">Attack!</button>
         </div>
         <div class="col-sm-4">
             <div id="opponent">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
             </div>
         </div>
         <div class="col-sm-1"></div>
