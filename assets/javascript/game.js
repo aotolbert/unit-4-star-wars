@@ -58,7 +58,7 @@ $(document).ready(function() {
         else if (playerSelected === true) {
             $ ("#obiwan").attr('id', "isfoe");
             $ ("#OBIWAN").detach();
-            $ ("#opponent").replaceWith($(obiwan));
+            $ ("#opponent").append($(obiwan));
             console.log("Opponent = Obiwan");
             $ ("#instructions").html("<h3 class='mr-auto ml-auto bg-light p-3'>Now click attack to deal damage to the opponent, but be careful, they get a chance to attack back!</h3>");
             $ ("#attack").addClass("visible");
@@ -97,7 +97,7 @@ $(document).ready(function() {
         else if (playerSelected === true) {
             $ ("#hansolo").attr('id', "isfoe");
             $ ("#HANSOLO").detach();
-            $ ("#opponent").replaceWith($(hansolo));
+            $ ("#opponent").append($(hansolo));
             console.log("Opponent = Han Solo");
             $ ("#instructions").html("<h3 class='mr-auto ml-auto bg-light p-3'>Now click attack to deal damage to the opponent, but be careful, they get a chance to attack back!</h3>");
             $ ("#attack").addClass("visible");
@@ -132,7 +132,7 @@ $(document).ready(function() {
         else if (playerSelected === true) {
             $ ("#kyloren").attr('id', "isfoe");
             $ ("#KYLOREN").detach();
-            $ ("#opponent").replaceWith($(kyloren));
+            $ ("#opponent").append($(kyloren));
             console.log("Opponent = Kylo Ren");
             $ ("#instructions").html("<h3 class='mr-auto ml-auto bg-light p-3'>Now click attack to deal damage to the opponent, but be careful, they get a chance to attack back!</h3>");
             $ ("#attack").addClass("visible");
@@ -168,7 +168,7 @@ $(document).ready(function() {
         else if (playerSelected === true) {
             $ ("#stormtrooper").attr('id', "isfoe");
             $ ("#STORMTROOPER").detach();
-            $ ("#opponent").replaceWith($(stormtrooper));
+            $ ("#opponent").append($(stormtrooper));
             console.log("Opponent = Stormtrooper");
             $ ("#instructions").html("<h3 class='mr-auto ml-auto bg-light p-3'>Now click attack to deal damage to the opponent, but be careful, they get a chance to attack back!</h3>");
             $ ("#attack").addClass("visible");
@@ -187,22 +187,37 @@ $(document).ready(function() {
         console.log("ATTACK!");
         var playerPower = ((Math.floor(Math.random() * 7) + 3) * 5); 
         console.log("player power is: " + playerPower);
-        var opponentPower = (Math.floor((Math.random() * 5) + 2) * 5); 
+        var opponentPower = (Math.floor((Math.random() * 4) + 2) * 5); 
         console.log("opponent power is: " + opponentPower);
         playerHealth = (playerHealth - opponentPower);
         opponentHealth = (opponentHealth - playerPower);
         console.log("new player health: " + playerHealth);
         console.log("new foe health: " + opponentHealth);
-        $("#isplayer").text("Health: " + playerHealth);
-        $("#isopponent").text("Health: " + opponentHealth);
+        $ ("#isplayer").text("Health: " + playerHealth);
+        $ ("#isopponent").text("Health: " + opponentHealth);
 
-        if (opponentHealth <= 0) {
+        if (playerHealth <= 0) {
+            alert("Oh no!! Looks like you've fallen on the field of battle. Now our cause is lost. Please refresh the page to try again!");
+            $ ("#instructions").html("<h3 class='mr-auto ml-auto bg-light p-3'>You Lose!</h3>");
+            $ ("#attack").remove();
+            $ (".bg-danger").remove();
+            $ (".bg-success").append($("#characters"));
+            
+
+
+        }
+
+        else if (opponentHealth <= 0) {
             alert("Congratulations! You have defeated your opponent. Please choose the next foe to continue the battle!");
             opponentSelected = false;
-            // $("#isfoe").addClass("invisible");
+             $ ("#opponent").empty();
             opponentHealth = 0;
             console.log("reset opp. health: " + opponentHealth);
+            $ ("#instructions").html("<h3 class='mr-auto ml-auto bg-light p-3'>Choose the next opponent!</h3>");
+
         }
+
+
 
     });
 
