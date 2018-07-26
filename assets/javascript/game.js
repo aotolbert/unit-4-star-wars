@@ -22,6 +22,8 @@ $(document).ready(function() {
     var playerHealth;
     var opponentHealth;
 
+    var winCounter = 0;
+
     function getHealth() {
 
     $("#obihealth").text("Health: " + obiscore);
@@ -185,9 +187,9 @@ $(document).ready(function() {
     //Attack Button Logic
     $("#attack").on("click", function() {
         console.log("ATTACK!");
-        var playerPower = ((Math.floor(Math.random() * 7) + 3) * 5); 
+        var playerPower = ((Math.floor(Math.random() * 10) + 3) * 5); 
         console.log("player power is: " + playerPower);
-        var opponentPower = (Math.floor((Math.random() * 4) + 2) * 5); 
+        var opponentPower = (Math.floor((Math.random() * 2) + 2) * 5); 
         console.log("opponent power is: " + opponentPower);
         playerHealth = (playerHealth - opponentPower);
         opponentHealth = (opponentHealth - playerPower);
@@ -202,21 +204,32 @@ $(document).ready(function() {
             $ ("#attack").remove();
             $ (".bg-danger").remove();
             $ (".bg-success").append($("#characters"));
+            $ ("#isplayer").text("R.I.P.");
+
             
 
 
         }
 
-        else if (opponentHealth <= 0) {
+        if (opponentHealth <= 0) {
             alert("Congratulations! You have defeated your opponent. Please choose the next foe to continue the battle!");
             opponentSelected = false;
              $ ("#opponent").empty();
             opponentHealth = 0;
             console.log("reset opp. health: " + opponentHealth);
             $ ("#instructions").html("<h3 class='mr-auto ml-auto bg-light p-3'>Choose the next opponent!</h3>");
+            winCounter++;
+    
 
         }
 
+        if (winCounter === 3) {
+            alert("Congratulations!! You managed to come out alive and we've already prepared a parade for you back home!");
+            $ ("#instructions").html("<h3 class='mr-auto ml-auto bg-light p-3'>You Win!!</h3>");
+            $ ("#attack").remove();
+            $ (".bg-success").append($("#characters"));
+            $ ("#isplayer").text("Winner");
+        }
 
 
     });
